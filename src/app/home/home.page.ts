@@ -28,8 +28,10 @@ export class HomePage implements OnInit {
   featuredSlideOpts = {
     slidesPerView: 1.2,
     spaceBetween: 10,
-    freeMode: true
-  }
+    freeMode: true,
+  };
+
+  showLocationDetail = false;
 
   constructor(private http: HttpClient) {}
 
@@ -41,5 +43,16 @@ export class HomePage implements OnInit {
         this.highlights = res.highlights;
         this.featured = res.featured;
       });
+  }
+
+  doRefresh(ev) {
+    setTimeout(() => {
+      ev.target.complete();
+    }, 2000);
+  }
+
+  onScroll(ev) {
+    const offset = ev.detail.scrollTop;
+    this.showLocationDetail = offset > 50;
   }
 }

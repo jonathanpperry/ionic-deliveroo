@@ -1,5 +1,5 @@
 {
-  "appId": "io.jonnyramen.ionicdeliveroo",
+  "appId": "io.ionic.starter",
   "appName": "foodUi",
   "bundledWebRuntime": false,
   "npmClient": "npm",
