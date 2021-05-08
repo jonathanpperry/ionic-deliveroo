@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./details.page.scss'],
 })
 export class DetailsPage implements OnInit {
-
-  constructor() { }
-
+  data = null;
+  constructor(private http: HttpClient) {}
   ngOnInit() {
+    this.http
+      .get('https://devdactic.fra1.digitaloceanspaces.com/foodui/1.json')
+      .subscribe((res: any) => {
+        this.data = res;
+        console.log(res)
+      });
   }
-
 }
